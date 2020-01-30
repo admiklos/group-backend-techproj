@@ -1,4 +1,4 @@
-package com.projects.TechTrainingProject.controller;
+package com.projects.training.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projects.TechTrainingProject.model.TechEntry;
-import com.projects.TechTrainingProject.service.TechEntryServiceImpl;
+import com.projects.training.model.TechEntry;
+import com.projects.training.service.TechEntryServiceImpl;
 
 @RestController
 public class MainController {
@@ -28,12 +28,6 @@ public class MainController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/entry")
-	public void saveEntry(@RequestBody TechEntry techEntry) {
-		techEntryServiceImpl.saveEntry(techEntry);
-	}
-
-	@CrossOrigin
 	@GetMapping("/entries")
 	public List<TechEntry> getAllEntries() {
 		return techEntryServiceImpl.getAllEntries();
@@ -46,8 +40,16 @@ public class MainController {
 	}
 	
 	@CrossOrigin
+	@PostMapping("/entry")
+	//public void saveEntry(@RequestBody TechEntry techEntry) {
+		public void saveEntry(TechEntry techEntry) {
+		techEntryServiceImpl.saveEntry(techEntry);
+	}
+
+	@CrossOrigin
 	@PutMapping("/entry/{id}")
-	public void updateEntry(@PathVariable Long id, @RequestBody TechEntry techEntry) {
+	//public void updateEntry(@PathVariable Long id, @RequestBody TechEntry techEntry) {
+		public void updateEntry(Long id, @RequestBody TechEntry techEntry) {
 		techEntryServiceImpl.updateEntry(id, techEntry);
 	}
 	

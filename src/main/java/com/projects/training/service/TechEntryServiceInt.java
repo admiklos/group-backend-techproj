@@ -1,10 +1,10 @@
-package com.projects.TechTrainingProject.service;
+package com.projects.training.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.projects.TechTrainingProject.model.TechEntry;
+import com.projects.training.model.TechEntry;
 
 @Service
 public interface TechEntryServiceInt {

@@ -1,12 +1,12 @@
-package com.projects.TechTrainingProject.service;
+package com.projects.training.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projects.TechTrainingProject.model.TechEntry;
-import com.projects.TechTrainingProject.repository.TechEntryRepository;
+import com.projects.training.model.TechEntry;
+import com.projects.training.repository.TechEntryRepository;
 
 @Service
 public class TechEntryServiceImpl implements TechEntryServiceInt {
@@ -17,7 +17,6 @@ public class TechEntryServiceImpl implements TechEntryServiceInt {
 	@Override
 	public void saveEntry(TechEntry techEntry) {
 		techEntryRepository.save(techEntry);
-		
 	}
 
 	@Override
@@ -28,25 +27,21 @@ public class TechEntryServiceImpl implements TechEntryServiceInt {
 	@Override
 	public void deleteEntry(Long id) {
 		techEntryRepository.deleteById(id);
-		
 	}
 
 	@Override
 	public TechEntry getEntryById(Long id) {
 		return techEntryRepository.findTechEntryById(id);
 	}
-	
+		
 	@Override
 	public void updateEntry(Long id, TechEntry techEntry) {
 		TechEntry updatedEntry = techEntryRepository.findTechEntryById(id);
-		updatedEntry.setLanguages(techEntry.getLanguages());
+		updatedEntry.setCategory(techEntry.getCategory());
+		updatedEntry.setLanguage(techEntry.getLanguage());
+		updatedEntry.setQuestion(techEntry.getQuestion());
+		updatedEntry.setMultiChoice(techEntry.getMultiChoice());
 		updatedEntry.setAnswer(techEntry.getAnswer());
-		updatedEntry.setSelectedLanguage(techEntry.getSelectedLanguage());
-		updatedEntry.setSelectedMethod(techEntry.getSelectedMethod());
-		updatedEntry.setTask(techEntry.getTask());
-		updatedEntry.setTaskCategory(techEntry.getTaskCategory());
-		updatedEntry.setUserAnswer(techEntry.getUserAnswer());
-		updatedEntry.setUsername(techEntry.getUsername());
 		techEntryRepository.save(updatedEntry);
 	}
 		
