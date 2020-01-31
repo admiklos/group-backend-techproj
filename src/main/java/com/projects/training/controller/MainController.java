@@ -41,15 +41,13 @@ public class MainController {
 	
 	@CrossOrigin
 	@PostMapping("/entry")
-	//public void saveEntry(@RequestBody TechEntry techEntry) {
-		public void saveEntry(TechEntry techEntry) {
+	public void saveEntry(@RequestBody TechEntry techEntry) {
 		techEntryServiceImpl.saveEntry(techEntry);
 	}
 
 	@CrossOrigin
 	@PutMapping("/entry/{id}")
-	//public void updateEntry(@PathVariable Long id, @RequestBody TechEntry techEntry) {
-		public void updateEntry(Long id, @RequestBody TechEntry techEntry) {
+	public void updateEntry(@PathVariable Long id, @RequestBody TechEntry techEntry) {
 		techEntryServiceImpl.updateEntry(id, techEntry);
 	}
 	
